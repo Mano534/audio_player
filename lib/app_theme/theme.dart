@@ -12,4 +12,9 @@ class AppTheme {
     );
     return appThemeData;
   }
-}
+  static final Color primaryColor = Colors.deepOrange.shade800;
+    static final Color  secondaryColor =  Colors.deepOrange.shade200;
+    static final Color formColor = Colors.grey.shade300;
+    static Gradient appColor = LinearGradient(colors: [primaryColor,secondaryColor],begin: Alignment.topCenter,end: Alignment.bottomCenter);
+  }
+

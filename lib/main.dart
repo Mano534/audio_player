@@ -10,7 +10,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({super.key}); 
 
   // This widget is the root of your application.
   @override
@@ -19,11 +19,11 @@ class MyApp extends StatelessWidget {
       
       title: 'Audio player',
       theme: AppTheme.createTheme(context),
-      initialRoute: '/',
+      initialRoute: '/song',
       getPages: [
-        GetPage(name: '/', page: () => const HomeScreen()),
-        GetPage(name: '/', page: () => const PlaylistScreen()),
-        GetPage(name: '/', page: () => const SongScreen()),
+        GetPage(name: '/', page: () =>  HomeScreen(title :'Enjoy your favourite music')),
+        GetPage(name: '/playlist', page: () => const PlaylistScreen()),
+        GetPage(name: '/song', page: () => const SongScreen()),
       ],
       debugShowCheckedModeBanner: false,
     );
