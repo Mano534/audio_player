@@ -5,11 +5,11 @@ import 'package:audio_player/widgets/seek_next.dart';
 import 'package:audio_player/widgets/seek_previous.dart';
 import 'package:audio_player/widgets/widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:just_audio/just_audio.dart';
 
 class SongScreen extends StatefulWidget {
-  const SongScreen({super.key});
-
+    const SongScreen({super.key});
   @override
   State<SongScreen> createState() => _SongScreenState();
 }
@@ -17,8 +17,8 @@ class SongScreen extends StatefulWidget {
 class _SongScreenState extends State<SongScreen> {
   late final AudioPlayer player;
   late final ConcatenatingAudioSource _playlist;
+   Song song = Get.arguments;
 
-  final song = Song.songs[0];
   @override
   void initState() {
     super.initState();
@@ -26,9 +26,7 @@ class _SongScreenState extends State<SongScreen> {
     _playlist = ConcatenatingAudioSource(
       useLazyPreparation: true,
       children: [
-        AudioSource.uri(Uri.parse('asset:///${Song.songs[0].musicURL}')),
-        AudioSource.uri(Uri.parse('asset:///${Song.songs[1].musicURL}')),
-        AudioSource.uri(Uri.parse('asset:///${Song.songs[2].musicURL}')),
+        AudioSource.uri(Uri.parse('asset:///${song.musicURL}')),
       ],
     );
     player.setAudioSource(_playlist,
@@ -45,9 +43,9 @@ class _SongScreenState extends State<SongScreen> {
   Widget build(BuildContext context) {
     _buildBackgroundImage() {
       return Container(
-          decoration: const BoxDecoration(
+          decoration:  BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage('assets/images/cover.jpg'),
+                  image: AssetImage(song.coverURL),
                   fit: BoxFit.cover)));
     }
 

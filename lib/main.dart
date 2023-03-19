@@ -19,10 +19,10 @@ class MyApp extends StatelessWidget {
       
       title: 'Audio player',
       theme: AppTheme.createTheme(context),
-      initialRoute: '/song',
+      initialRoute: '/',
       getPages: [
         GetPage(name: '/', page: () =>  HomeScreen(title :'Enjoy your favourite music')),
-        GetPage(name: '/playlist', page: () => const PlaylistScreen()),
+        GetPage(name: '/playlist', page: () =>  const PlaylistScreen()),
         GetPage(name: '/song', page: () => const SongScreen()),
       ],
       debugShowCheckedModeBanner: false,
